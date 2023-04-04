@@ -1,0 +1,30 @@
+  <table>
+    <thead>
+      <tr>
+        <th><span (click)="sortBy('date')">Date</span></th>
+        <th>Client</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th><span (click)="sortBy('filename')">FileName</span></th>
+        <th>Download</th>
+        <th><span (click)="sortBy('updated')">Uploaded</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let transaction of transactionArray">
+        <tr>
+          <td> {{transaction.transactionDate || '-'}} </td>
+          <td> {{transaction.clientName || '-'}} </td>
+          <td> {{transaction.description || '-'}} </td>
+          <td> {{transaction.amount |currency }} </td>
+          <td> {{transaction.fileName || '-'}} </td>
+          <td> <a href="{{transaction.fileUrl || '-'}}">Download</a></td>
+          <td> {{transaction.uploadedDate || '-'}} </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+
+
+
+
