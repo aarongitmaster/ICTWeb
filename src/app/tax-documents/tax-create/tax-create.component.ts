@@ -1,5 +1,6 @@
 import { HttpClient, HttpEventType, HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { RestService } from 'src/app/rest.service';
 
 @Component({
   selector: 'app-tax-create',
@@ -11,9 +12,10 @@ export class TaxCreateComponent {
   message: string;
   @Output() public onUploadFinished = new EventEmitter();
 
-  constructor(private http: HttpClient) { }
+  constructor(private api: RestService,private http: HttpClient) { }
   ngOnInit() {
   }
+
   uploadFile = (files: any) => {
 
     this.message = 'Upload started.';
@@ -26,7 +28,8 @@ export class TaxCreateComponent {
     formData.append('file', fileToUpload, fileToUpload.name);
     
 
-    this.http.post('https://icttaxapi.azurewebsites.net/api/v1', formData, { reportProgress: true, observe: 'events' })
+    //this.http.post('https://icttaxapi.azurewebsites.net/api/v1', formData, { reportProgress: true, observe: 'events' })
+    this.api.postTaxDocument(formData)
       .subscribe({
         next: (event) => {
           if (event.type === HttpEventType.UploadProgress)
