@@ -4,9 +4,9 @@
     "\\.angular",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\tax-documents",
-    "\\src\\app\\tax-documents\\tax-client"
+    "\\src\\assets",
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\tax-documents\\tax-client\\tax-client.component.ts",
+  "SelectedNode": "\\src\\app\\rest.service.ts",
   "PreviewInSolutionExplorer": false
 }
