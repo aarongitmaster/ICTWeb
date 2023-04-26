@@ -36,7 +36,7 @@ stages:
       - deployment: QADeployJob
         environment: QA
         strategy: 
-        runOnce:
-          deploy:
-            steps:
-            -script: echo deploy to QA
+          runOnce:
+            deploy:
+              steps:
+              - script: echo deploy to QA
